@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="eng">
+
     <head>
       <meta charset="utf-8" />
       <link rel="stylesheet" href="css/main.css">
@@ -8,7 +9,9 @@
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
       <script src="https://d3js.org/d3.v4.min.js"></script>
       <script src="https://apis.google.com/js/api.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
+
     <body>
       <nav class="top-bar">
         <div class="left">
@@ -29,15 +32,27 @@
         </div>
         <div class="middle-wrapper">
           <div class="content">
-            <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eum pariatur error non, adipisci qui veritatis nihil iste nulla porro at doloribus debitis magnam neque impedit quam recusandae, explicabo dicta ducimus!</div>
-            <div>Eveniet enim quam, possimus natus. Sit quod explicabo eum dolores ex omnis voluptatibus, corporis amet. Placeat alias facere, rerum praesentium? Error delectus esse, quibusdam nam voluptatibus quia! Labore, optio, unde.</div>
-            <div>Aspernatur maxime quasi aperiam ratione, facilis, earum dignissimos saepe rerum quae quidem officiis ab? Pariatur cupiditate, sed magni, fugiat dolorem repellat. Laudantium mollitia officiis eaque. Modi eius facilis, libero dignissimos.</div>
-            <div>Earum error, explicabo officia, doloremque iure ad maxime eos culpa quia veritatis nam sunt praesentium dolore, minima possimus dicta. Fugiat facilis enim consequuntur facere, hic quam temporibus quidem vel. Nesciunt.</div>
-            <div>Itaque asperiores ex repellendus, totam quo, ullam sit maxime aliquid aliquam recusandae, quae repudiandae, quaerat cumque beatae possimus deserunt dolorem eligendi dolores inventore optio temporibus explicabo in laborum! Labore, animi?</div>
+            <form id="searchForm">
+              <input id="searchBar" type="search" name="keywords" placeholder="Search YouTube.." autocomplete="off" required> <input class="submitButton" type="submit"> <br>
+              <hr> <b>Filters:</b> <br>
+              <div class="filter">
+                <input id="viewToggleMin" type="checkbox" onchange="ifDisabled();"> <span class="small">Minimum Views</span> <br>
+                <!-- <input id="rangeRange" type="range" name="views" step="100000" min="0" max="10000000" value="5000000" onchange="updateTextV(this.value);" disabled> <br> -->
+                <input id="rangeTextMin" class="smallInput" type="number" name="minLimit" min="0" value="0" disabled>
+              </div>
+              <div class="filter">
+                <input id="viewToggleMax" type="checkbox" onchange="ifDisabledMax();"> <span class="small">Maximum Views</span> <br>
+                <!-- <input id="rangeRange" type="range" name="views" step="100000" min="0" max="10000000" value="5000000" onchange="updateTextV(this.value);" disabled> <br> -->
+                <input id="rangeTextMax" class="smallInput" type="number" name="maxLimit" min="0" value="0" disabled>
+              </div>
+              <hr>
+            </form>
+            <p id="resultDiv"></p>
             <p id="test"></p>
           </div>
         </div>
       </div>
       <script src="js/home.js"></script>
     </body>
+
 </html>

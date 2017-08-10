@@ -1,7 +1,7 @@
 body {
     display: block;
     background-color: #CC4633;
-    font-family: 'Open-Sans', Arial, Helvetica, sans-serif;
+    font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
 }
@@ -37,4 +37,61 @@ body {
     margin-right: 12%;
     margin-left: 12%;
     height: 500px;
+}
+
+div.filter {
+    display: inline-block;
+}
+
+span.small {
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 0.7em;
+}
+
+#searchBar {
+    width: 80%;
+    height: 2em;
+    font-size: 1.8em;
+}
+
+/* input.submitButton {
+    float: right;
+    width: 15%;
+    height: 2em;
+    font-size: 1.8em;
+}  */
+
+input.smallInput {
+    width: 8em;
+}
+
+::-webkit-input-placeholder {
+   font-style: italic;
+   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+:-moz-placeholder {
+   font-style: italic;  
+   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+::-moz-placeholder {
+   font-style: italic;  
+   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+:-ms-input-placeholder {  
+   font-style: italic; 
+   font-family: 'Open Sans', Arial, Helvetica, sans-serif;
+}
+
+input.submitButton {
+    background-color: #008CBA;
+    border: none;
+    color: white;
+    width: 15%;
+    padding: 15px 32px;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.6em;
 }
