@@ -3,7 +3,7 @@ var wordArray = [];
 // Intialize YouTubeAPI functions.
 function start() {
   gapi.client.init({
-    'apiKey': 'AIzaSyAWE2mRXRb0_VS8TXk1xOkcVWUHsZxwImI'
+    'apiKey': 'AIzaSyC__E8TsENRXiRqAcxYB9-Uk8AwSSyVhqI'
   }).then(() => {
     $('#searchForm').submit((e) => {
       e.preventDefault(); // Stops refresh.
