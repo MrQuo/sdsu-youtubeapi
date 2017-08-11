@@ -1,5 +1,5 @@
 var wordArray = [];
-var location = false;
+var locationVariable = false;
 
 // Intialize YouTubeAPI functions.
 function start() {
@@ -108,14 +108,14 @@ function ifDisabledMax() {
 }
 
 function ifDisabledLocation() {
-  longitude = $('#longitudeText');
-  latitude = $('#latitudeText');
-  radius = $('#radiusText');
+  longitude = document.getElementById('longitudeText');
+  latitude = document.getElementById('latitudeText');
+  radius = document.getElementById('radiusText');
 
   longitude.disabled = !longitude.disabled;
   latitude.disabled = !latitude.disabled;
   radius = !radius.disabled;
-  location = !location;
+  locationVariable = !locationVariable;
 }
 
 // Google API ready check. Call the initializations.
