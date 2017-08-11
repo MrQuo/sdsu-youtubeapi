@@ -1,5 +1,4 @@
 var wordArray = [];
-var locationVariable = false;
 
 // Intialize YouTubeAPI functions.
 function start() {
@@ -115,7 +114,6 @@ function ifDisabledLocation() {
   longitude.disabled = !longitude.disabled;
   latitude.disabled = !latitude.disabled;
   radius = !radius.disabled;
-  locationVariable = !locationVariable;
 }
 
 // Google API ready check. Call the initializations.
