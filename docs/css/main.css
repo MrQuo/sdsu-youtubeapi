@@ -1,31 +1,55 @@
 body {
     display: block;
-    background-color: #CC4633;
+    background-color: #3D3A35;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
+}
+
+div.title
+a {
+    text-decoration: none;
+    color: #fff;
+    transition-duration: 0.2s;
+}
+
+div.title
+a:hover {
+    color: #bbb;
 }
 
 .top-bar {
     display: none;
 }
 
-.top-wrapper {
-    display: block;
+div.top-wrapper, div.bottom-wrapper {
     background-color: #3D3A35;
-    padding-top: 2%;
-    padding-bottom: 6%;
 }
 
-.title {
+div.top-wrapper {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+div.bottom-wrapper {
+    bottom: 0;
+    width: 100%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+div.title, div.bottom-wrapper {
     text-align: center;
     font-size: 4em;
     color: #fff;
 }
 
+div.bottom-wrapper {
+    font-size: 1em;
+}
+
 .middle-wrapper {
     background-color: #CC4633;
-    padding-bottom: 6%;
 }
 
 .content {
@@ -33,10 +57,9 @@ body {
     padding-top: 2%;
     padding-right: 4%;
     padding-left: 4%;
-    padding-bottom: 6%;
+    padding-bottom: 2%;
     margin-right: 12%;
     margin-left: 12%;
-    height: 500px;
 }
 
 div.filter {
@@ -107,4 +130,44 @@ input.submitButton {
 input.submitButton:hover {
   background-color: white;
   color: #008CBA;
+}
+
+#graphDiv {
+    display: inline-block;
+    width: 45%;
+    vertical-align: top;
+}
+
+#resultDiv {
+    display: none;
+    background-color: white;
+    width: 49%;
+    padding: 2%;
+}
+
+img.videoThumb {
+    display: inline-block;
+    width: 204px;
+    height: 128px;
+}
+
+span.videoTitle {
+    font-size: 1.3em;
+    font-weight: 700;
+}
+
+span.videoDesc {
+    font-size: 0.7em;
+}
+
+div.videoInfo {
+    display: inline-block;
+    vertical-align: top;
+    width: 50%;
+    padding: 8px;
+}
+
+b {
+    display:inline-block;
+    position: initial;
 }

@@ -1,67 +1,122 @@
-//Google YouTube API Function
+var wordArray = [];
+var location = false;
 
-var apiEnabled = false;
-
-$('#searchForm').submit(function(e) {
-  if (apiEnabled) {
-    e.preventDefault();
-    gapi.client.load('youtube', 'v3', function() {
-      makeRequest();
-    });
-  
-    document.getElementById('test').innerHTML = 'YouTubeAPI loaded!';
-    document.getElementById('test').style.color = 'red';
-    document.getElementById('test').style.position = 'relative';
-  }
-});
-
-function makeRequest() {
-        var q = document.getElementById('keywordBar').value;
-        var request = gapi.client.youtube.search.list({
-                q: q,
-                part: 'snippet', 
-                maxResults: 10
-        });
-        request.execute(function(response)  {                                                               
-                var results = document.getElementById('resultDiv');
-                var srchItems = response.result.items;                      
-                srchItems.forEach(function(index, item) {
-                vidTitle = item.snippet.title;  
-                vidThumburl =  item.snippet.thumbnails.default.url;                 
-                vidThumbimg = '<pre><img id="thumb" src="'+vidThumburl+'" alt="No  Image Available." style="width:204px;height:128px"></pre>';                   
-
-                results.append('<pre>' + vidTitle + vidThumbimg +  '</pre>');                      
-        });  
-    });  
-}
-
+// Intialize YouTubeAPI functions.
 function start() {
-  // 2. Initialize the JavaScript client library.
   gapi.client.init({
-    'apiKey': 'AIzaSyC__E8TsENRXiRqAcxYB9-Uk8AwSSyVhqI'
+    'apiKey': 'AIzaSyAWE2mRXRb0_VS8TXk1xOkcVWUHsZxwImI'
+  }).then(() => {
+    $('#searchForm').submit((e) => {
+      e.preventDefault(); // Stops refresh.
+
+      gapi.client.load('youtube', 'v3').then(() => {
+        makeRequest();
+        document.getElementById('resultDiv').style.display = 'inline-block';
+        wordToCloud();
+      });
+    });
   });
-  apiEnabled = true;
 }
+
+// The request with input data.
+function makeRequest() {
+  var q = document.getElementById('keywordBar').value;
+  var orderType = document.getElementById('orderDropdown').value;
+  
+  console.log(orderType);
+
+  if (location) {
+    var request = gapi.client.youtube.search.list({
+      q: q,
+      safeSearch: 'strict',
+      part: 'snippet',
+      relevanceLanguage: 'en-US', 
+      maxResults: 10,
+      type: 'video',
+      order: orderType,
+      regionCode: 'US',
+      location: ('(' + $('#longitudeText').value + ', ' + $('#latitudeText').value + ')'),
+      locationRadius: $('#radiusText').value
+    });
+  } else {
+    var request = gapi.client.youtube.search.list({
+      q: q,
+      safeSearch: 'strict',
+      part: 'snippet',
+      relevanceLanguage: 'en-US', 
+      maxResults: 10,
+      type: 'video',
+      order: orderType,
+      regionCode: 'US'
+    });
+  }
+
+  request.execute((response) => {      
+    console.log(response);
+
+    var results = $('#resultDiv');
+    results.empty();
+    var searchItems = response.result.items; 
+
+    results.append('<p>Results:</p>')
+    
+    searchItems.forEach((item) => {
+      vidTitleSnippet = item.snippet.title
+      vidTitle = '<span class="videoTitle">' + item.snippet.title + '</span>';
+      //Add title words to word cloud
+      vidTitleSnippet.replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").split(' ').forEach((word) => {
+        if (wordArray.length == 0) {
+          wordArray.push({text: word, size: 1});
+        } else {
+          var bool = false;
+          for (var a = 0; a < wordArray.length; a++) {
+            if (wordArray[a].text == word) {
+              wordArray[a].size++;
+              bool = true;
+              break;
+            }
+          }
+          if (bool) {
+            wordArray.push({text: word, size: 1});
+          }
+        }
+      });
+
+      vidDesc = '<span class="videoDesc">' + item.snippet.description + '</span>';
+      vidThumb = '<img class="videoThumb" src="' + item.snippet.thumbnails.default.url + '" alt="No Image Available.">';                 
+      results.append('<div>' + vidThumb + '<div class="videoInfo">' + vidTitle + '<br>' + vidDesc + "</div>" + '</div>' + '<hr>');                      
+    });  
+  });  
+}
+
+// Create word-cloud.
 function wordToCloud() {
-
+  console.log(wordArray);
+  $('#word-cloud').empty();
+  d3.wordcloud().size([200, 200]).selector('#word-cloud').words(wordArray).start();
 }
 
-function ifDisabled() {
-  document.getElementById('rangeTextMin').disabled = !(document.getElementById('rangeTextMin').disabled)
-  // document.getElementById('rangeRange').disabled = !(document.getElementById('rangeRange').disabled)
+// Checkbox input enable disable
+function ifDisabledMin() {
+  var elem = document.getElementById('rangeTextMin');
+  elem.disabled = !elem.disabled;
 }
 
 function ifDisabledMax() {
-  document.getElementById('rangeTextMax').disabled = !(document.getElementById('rangeTextMax').disabled)
-  // document.getElementById('rangeRange').disabled = !(document.getElementById('rangeRange').disabled)
+  var elem = document.getElementById('rangeTextMax');
+  elem.disabled = !elem.disabled;
 }
 
-function updateTextV(value) {
-  document.getElementById('rangeTextMax').value = value;
+function ifDisabledLocation() {
+  longitude = $('#longitudeText');
+  latitude = $('#latitudeText');
+  radius = $('#radiusText');
+
+  longitude.disabled = !longitude.disabled;
+  latitude.disabled = !latitude.disabled;
+  radius = !radius.disabled;
+  location = !location;
 }
 
-function updateRangeV(value) {
-  document.getElementById('rangeRange').value = value;
-}
-
+// Google API ready check. Call the initializations.
 gapi.load('client', start);

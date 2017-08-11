@@ -8,6 +8,9 @@
       <title>SDSU YouTubeAPI</title>
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
       <script src="https://d3js.org/d3.v4.min.js"></script>
+      <script src="lib/d3.js"></script>
+      <script src="lib/d3.layout.cloud.js"></script>
+      <script src="lib/d3.wordcloud.js"></script>
       <script src="https://apis.google.com/js/api.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     </head>
@@ -27,7 +30,7 @@
       <div id="main-wrapper">
         <div class="top-wrapper">
           <div class="title">
-            <div class"title1">YouTube API Project</div>
+            <a href="https://roobot0.github.io/sdsu-youtubeapi/">YouTube API Project</a>
           </div>
         </div>
         <div class="middle-wrapper">
@@ -36,22 +39,40 @@
               <input id="keywordBar" type="search" name="keywords" placeholder="Keywords (leave blank to ignore)" autocomplete="off"> <input class="submitButton" type="submit" value="Search"> <br>
               <hr> <b>Filters:</b> <br>
               <div class="filter">
-                <input id="viewToggleMin" type="checkbox" onchange="ifDisabled();"> <span class="small">Minimum Views</span> <br>
-                <!-- <input id="rangeRange" type="range" name="views" step="100000" min="0" max="10000000" value="5000000" onchange="updateTextV(this.value);" disabled> <br> -->
-                <input id="rangeTextMin" class="smallInput" type="number" name="minLimit" min="0" value="1000" disabled>
+                Sort by:
+                <select id="orderDropdown">
+                  <option value="viewCount">View Count</option>
+                  <option value="relevance">Relevance</option>
+                  <option value="rating">Rating</option>
+                  <option value="date">Date</option>
+                  <option value="title">Alphabetically</option>
+                </select> <br>
+                <input id="viewToggleMin" type="checkbox" onchange="ifDisabledMin();"> <span class="small">Minimum Views</span> <br>
+                <input id="rangeTextMin" class="smallInput" type="number" name="minLimit" min="0" value="1000" step="1" disabled> <br>
+                <input id="viewToggleMax" type="checkbox" onchange="ifDisabledMax();"> <span class="small">Maximum Views</span> <br>
+                <input id="rangeTextMax" class="smallInput" type="number" name="maxLimit" min="0" value="100000000" step="1" disabled>
               </div>
               <div class="filter">
-                <input id="viewToggleMax" type="checkbox" onchange="ifDisabledMax();"> <span class="small">Maximum Views</span> <br>
-                <!-- <input id="rangeRange" type="range" name="views" step="100000" min="0" max="10000000" value="5000000" onchange="updateTextV(this.value);" disabled> <br> -->
-                <input id="rangeTextMax" class="smallInput" type="number" name="maxLimit" min="0" value="100000000" disabled>
+                <input id="locationToggle" type="checkbox" onchange="ifDisabledLocation();"> <span class="small">Location</span> <br>
+                <span class="small">Center:</span> <br>
+                <input id="longitudeText" class="smallInput" type="number" name="longitude" min="-180" max="180" value="0.000000" disabled> <br>
+                <input id="latitudeText" class="smallInput" type="number" name="latitude" min="-180" max="180" value="0.000000" disabled> <br>
+                <input id="radiusText" class="smallInput" type="number" name="radius" min="0" max="100" value="5" disabled>
               </div>
               <hr>
             </form>
-            <pre id="youtube"></pre>
-            <div id="resultDiv"></div>
-            <p id="test"></p>
+            <div>
+              <div id="resultDiv">Results listed here.</div>
+              <div id="graphDiv">
+                <div id="word-cloud">Wordcloud here.</div>
+              </div>
+            </div>
           </div>
         </div>
+      <div class="bottom-wrapper">
+          Original HTML, CSS, and Javascript created by: Quo <br>
+          Hosted by GitHub on GitHub Pages.
+      </div>
       </div>
       <script src="js/home.js"></script>
     </body>
