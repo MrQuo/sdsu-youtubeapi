@@ -1,18 +1,22 @@
 //Google YouTube API Function
-$('#searchForm').submit(function(e) {
-  e.preventDefault();
-  gapi.client.setApiKey('AIzaSyC__E8TsENRXiRqAcxYB9-Uk8AwSSyVhqI');
-  gapi.client.load('youtube', 'v3', function() {
-    makeRequest();
-  });
 
-  document.getElementById('test').innerHTML = 'YouTubeAPI loaded!';
-  document.getElementById('test').style.color = 'red';
-  document.getElementById('test').style.position = 'relative';
+var apiEnabled = false;
+
+$('#searchForm').submit(function(e) {
+  if (apiEnabled) {
+    e.preventDefault();
+    gapi.client.load('youtube', 'v3', function() {
+      makeRequest();
+    });
+  
+    document.getElementById('test').innerHTML = 'YouTubeAPI loaded!';
+    document.getElementById('test').style.color = 'red';
+    document.getElementById('test').style.position = 'relative';
+  }
 });
 
 function makeRequest() {
-        var q = document.getElementById('searchBar').value;
+        var q = document.getElementById('keywordBar').value;
         var request = gapi.client.youtube.search.list({
                 q: q,
                 part: 'snippet', 
@@ -31,6 +35,13 @@ function makeRequest() {
     });  
 }
 
+function start() {
+  // 2. Initialize the JavaScript client library.
+  gapi.client.init({
+    'apiKey': 'AIzaSyC__E8TsENRXiRqAcxYB9-Uk8AwSSyVhqI'
+  });
+  apiEnabled = true;
+}
 function wordToCloud() {
 
 }
@@ -53,4 +64,4 @@ function updateRangeV(value) {
   document.getElementById('rangeRange').value = value;
 }
 
-// 1. Load the JavaScript client library.
+gapi.load('client', start);

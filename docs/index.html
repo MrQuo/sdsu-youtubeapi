@@ -33,21 +33,22 @@
         <div class="middle-wrapper">
           <div class="content">
             <form id="searchForm">
-              <input id="searchBar" type="search" name="keywords" placeholder="Search YouTube.." autocomplete="off" required> <input class="submitButton" type="submit"> <br>
+              <input id="keywordBar" type="search" name="keywords" placeholder="Keywords (leave blank to ignore)" autocomplete="off"> <input class="submitButton" type="submit" value="Search"> <br>
               <hr> <b>Filters:</b> <br>
               <div class="filter">
                 <input id="viewToggleMin" type="checkbox" onchange="ifDisabled();"> <span class="small">Minimum Views</span> <br>
                 <!-- <input id="rangeRange" type="range" name="views" step="100000" min="0" max="10000000" value="5000000" onchange="updateTextV(this.value);" disabled> <br> -->
-                <input id="rangeTextMin" class="smallInput" type="number" name="minLimit" min="0" value="0" disabled>
+                <input id="rangeTextMin" class="smallInput" type="number" name="minLimit" min="0" value="1000" disabled>
               </div>
               <div class="filter">
                 <input id="viewToggleMax" type="checkbox" onchange="ifDisabledMax();"> <span class="small">Maximum Views</span> <br>
                 <!-- <input id="rangeRange" type="range" name="views" step="100000" min="0" max="10000000" value="5000000" onchange="updateTextV(this.value);" disabled> <br> -->
-                <input id="rangeTextMax" class="smallInput" type="number" name="maxLimit" min="0" value="0" disabled>
+                <input id="rangeTextMax" class="smallInput" type="number" name="maxLimit" min="0" value="100000000" disabled>
               </div>
               <hr>
             </form>
-            <p id="resultDiv"></p>
+            <pre id="youtube"></pre>
+            <div id="resultDiv"></div>
             <p id="test"></p>
           </div>
         </div>
