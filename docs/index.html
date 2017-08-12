@@ -3,45 +3,59 @@
 <html lang="eng">
 
     <head>
-      <meta charset="utf-8" />
-      <link rel="stylesheet" href="css/main.css">
+
       <title>SDSU YouTubeAPI</title>
+      <meta charset="utf-8" />
+
+      <!-- Favicon -->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+
+      <!-- Fonts -->
       <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
-      <script src="https://d3js.org/d3.v4.min.js"></script>
+
+      <!-- Stylesheets -->
+      <link rel="stylesheet" href="css/main.css">
+
+      <!-- Local Lib -->
       <script src="lib/d3.js"></script>
       <script src="lib/d3.layout.cloud.js"></script>
       <script src="lib/d3.wordcloud.js"></script>
+
+      <!-- CDN Lib -->
+      <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
       <script src="https://apis.google.com/js/api.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
     </head>
 
     <body>
-      <nav class="top-bar">
-        <div class="left">
-          <ul>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-            <li></li>
-          </ul>
-        </div>
-      </nav>
+
+      <!-- container -->
       <div id="main-wrapper">
+        
+        <!-- top -->
         <div class="top-wrapper">
           <div class="title">
-            <a href="https://roobot0.github.io/sdsu-youtubeapi/">YouTube API Project</a>
+            <a href="index.html">YouTube API Project</a>
           </div>
+          <small class="info">(Click/Refresh to reset!)</small>
         </div>
+        <!-- top END -->
+
+        <!-- middle -->
         <div class="middle-wrapper">
+          
+          <!-- inner content BEGIN -->
           <div class="content">
+            <!-- This is my search form. -->
             <form id="searchForm">
               <input id="keywordBar" type="search" name="keywords" placeholder="Keywords (leave blank to ignore)" autocomplete="off"> <input class="submitButton" type="submit" value="Search"> <br>
-              <hr> <b>Filters:</b> <br>
+              <hr>
+              <b>Search Filters:</b> <br>
               <div class="filter">
                 Sort by:
                 <select id="orderDropdown">
-                  <option value="viewCount">View Count</option>
+                  <option value="viewCount" selected>View Count</option>
                   <option value="relevance">Relevance</option>
                   <option value="rating">Rating</option>
                   <option value="date">Date</option>
@@ -55,26 +69,41 @@
               <div class="filter">
                 <input id="locationToggle" type="checkbox" onchange="ifDisabledLocation();"> <span class="small">Location</span> <br>
                 <span class="small">Center:</span> <br>
-                <input id="longitudeText" class="smallInput" type="number" name="longitude" min="-180" max="180" value="0.000000" disabled> <br>
-                <input id="latitudeText" class="smallInput" type="number" name="latitude" min="-180" max="180" value="0.000000" disabled> <br>
-                <input id="radiusText" class="smallInput" type="number" name="radius" min="0.00001" max="100" value="5" disabled>
+                <input id="latitudeText" class="smallInput" type="number" name="latitudeIn" min="-180" max="180" step="0.000001" value="0.000000" disabled> <br>
+                <input id="longitudeText" class="smallInput" type="number" name="longitudeIn" min="-180" max="180" step="0.000001" value="0.000000" disabled> <br>
+                <input id="radiusText" class="smallInput" type="number" name="radiusIn" min="1" max="1000" value="500" disabled>
+                <select id="radiusUnit" disabled>
+                  <option value="m">m</option>
+                  <option value="km" selected>km</option>
+                  <option value="ft">ft</option>
+                  <option value="mi">mi</option>
+                </select>
               </div>
               <hr>
             </form>
             <div>
-              <div id="resultDiv">Results listed here.</div>
+              <div id="resultDiv"></div>
               <div id="graphDiv">
-                <div id="word-cloud">Wordcloud here.</div>
+                <div id="word-cloud"><h3 style="color:crimson;">Important:</h3>You <em>may</em> have to submit many times to see the most commonly used words in the word-cloud. I'll probably replace or include a bar-graph or tally of words used.<h4>Also,</h4>I still have to make the view filter work properly. Google does not send a video's view with their YouTube API.</div>
               </div>
             </div>
           </div>
+          <!-- inner content END -->
         </div>
-      <div class="bottom-wrapper">
+        <!-- top END -->
+
+        <!-- bottom -->
+        <div class="bottom-wrapper">
           Original HTML, CSS, and Javascript created by: Quo <br>
           Hosted by GitHub on GitHub Pages.
+        </div>
+        <!-- bottom END -->
       </div>
-      </div>
+      <!-- container END -->
+
+      <!-- Document Ready Scripts -->
       <script src="js/home.js"></script>
+
     </body>
 
 </html>
