@@ -165,15 +165,15 @@ function toggleLocation() {
 // Post-Declarations
 // _*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_*_
 
-document.getElementById('viewToggleMin').addEventListener('onchange', (e) => {
+document.getElementById('viewToggleMin').addEventListener('change', (e) => {
   toggleMin();
 });
 
-document.getElementById('viewToggleMax').addEventListener('onchange', (e) => {
+document.getElementById('viewToggleMax').addEventListener('change', (e) => {
   toggleMax();
 });
 
-document.getElementById('locationToggle').addEventListener('onchange', (e) => {
+document.getElementById('locationToggle').addEventListener('change', (e) => {
   toggleLocation();
 });
 
