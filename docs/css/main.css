@@ -6,18 +6,6 @@ body {
     padding: 0;
 }
 
-div.title
-a {
-    text-decoration: none;
-    color: #fff;
-    transition-duration: 0.2s;
-}
-
-div.title
-a:hover {
-    color: #bbb;
-}
-
 .top-bar {
     display: none;
 }
@@ -38,10 +26,37 @@ div.bottom-wrapper {
     padding-bottom: 2%;
 }
 
+div.top-wrapper, div.bottom-wrapper
+a {
+    color: #fff;
+}
+
+div.top-wrapper, div.bottom-wrapper
+a:hover {
+    color: #bbb;
+}
+
+div.top-wrapper, div.bottom-wrapper
+a:visited {
+    color: #fff;
+}
+
 div.title, div.bottom-wrapper {
     text-align: center;
     font-size: 4em;
     color: #fff;
+}
+
+div.title
+a {
+    text-decoration: none;
+    color: #fff;
+    transition-duration: 0.2s;
+}
+
+div.title
+a:hover {
+    color: #bbb;
 }
 
 div.bottom-wrapper {
