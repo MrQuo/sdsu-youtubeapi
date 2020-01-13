@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 
 <html lang="eng">
-
     <head>
-
       <title>SDSU YouTubeAPI</title>
       <meta charset="utf-8" />
 
@@ -19,35 +17,27 @@
       <!-- Local Lib -->
       <script src="lib/d3.js"></script>
       <script src="lib/d3.layout.cloud.js"></script>
-      <script src="lib/d3.wordcloud.js"></script>
 
       <!-- CDN Lib -->
       <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
       <script src="https://apis.google.com/js/api.js"></script>
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
     </head>
 
     <body>
 
-      <!-- container -->
       <div id="main-wrapper">
-        
-        <!-- top -->
         <div class="top-wrapper">
           <div class="title">
             <a href="index.html">YouTube API Project</a>
           </div>
           <small class="info">(Click/Refresh to reset!)</small>
         </div>
-        <!-- top END -->
 
         <!-- middle -->
         <div class="middle-wrapper">
-          
-          <!-- inner content BEGIN -->
+          <!-- Content -->
           <div class="content">
-            <!-- This is my search form. -->
             <form id="searchForm">
               <input id="keywordBar" type="search" name="keywords" placeholder="Keywords (leave blank to ignore)" autocomplete="off"> <input class="submitButton" type="submit" value="Search"> <br>
               <hr>
@@ -61,13 +51,13 @@
                   <option value="date">Date</option>
                   <option value="title">Alphabetically</option>
                 </select> <br>
-                <input id="viewToggleMin" type="checkbox" onchange="ifDisabledMin();"> <span class="small">Minimum Views</span> <br>
+                <input id="viewToggleMin" type="checkbox"> <span class="small">Minimum Views</span> <br>
                 <input id="rangeTextMin" class="smallInput" type="number" name="minLimit" min="0" value="1000" step="1" disabled> <br>
-                <input id="viewToggleMax" type="checkbox" onchange="ifDisabledMax();"> <span class="small">Maximum Views</span> <br>
+                <input id="viewToggleMax" type="checkbox"> <span class="small">Maximum Views</span> <br>
                 <input id="rangeTextMax" class="smallInput" type="number" name="maxLimit" min="0" value="100000000" step="1" disabled>
               </div>
               <div class="filter">
-                <input id="locationToggle" type="checkbox" onchange="ifDisabledLocation();"> <span class="small">Location</span> <br>
+                <input id="locationToggle" type="checkbox"> <span class="small">Location</span> <br>
                 <span class="small">Center:</span> <br>
                 <input id="latitudeText" class="smallInput" type="number" name="latitudeIn" min="-180" max="180" step="0.000001" value="0.000000" disabled> <br>
                 <input id="longitudeText" class="smallInput" type="number" name="longitudeIn" min="-180" max="180" step="0.000001" value="0.000000" disabled> <br>
@@ -88,22 +78,16 @@
               </div>
             </div>
           </div>
-          <!-- inner content END -->
         </div>
-        <!-- top END -->
 
-        <!-- bottom -->
+        <!-- Credits -->
         <div class="bottom-wrapper">
-          Original HTML, CSS, and Javascript created by: Quo <br>
-          Hosted by GitHub on GitHub Pages.
+          HTML, CSS, and JavaScript by: MrQuo <br>
+          For educational purposes at the <a href="https://humandynamics.sdsu.edu/" target="_blank">SDSU HDMA Center</a>.
         </div>
-        <!-- bottom END -->
       </div>
-      <!-- container END -->
 
       <!-- Document Ready Scripts -->
       <script src="js/home.js"></script>
-
     </body>
-
 </html>
