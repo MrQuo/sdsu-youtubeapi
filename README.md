@@ -5,7 +5,7 @@ While social media is growing and connecting people across the world, San Diego 
 
 The website is my test of Google's YouTube Data API v3 and the information it can provide for social media research as part of SDSU's growing research in human behavior. I had an idea that popular culture and trends can be seen through videos' titles.
 
-Check out the [website](https://mrquo.github.io/sdsu-youtubeapi/)!
+Check out the [**online demo**](https://mrquo.github.io/sdsu-youtubeapi/)!
 
 ### What it does
 The website makes a wordcloud of the words used in the first 10 video titles that show in search.
