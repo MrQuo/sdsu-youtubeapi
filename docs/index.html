@@ -1,93 +1,93 @@
 <!DOCTYPE html>
 
 <html lang="eng">
-    <head>
-      <title>SDSU YouTubeAPI</title>
-      <meta charset="utf-8" />
+  <head>
+    <title>YouTube API Project</title>
+    <meta charset="utf-8" />
 
-      <!-- Favicon -->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-      <!-- Fonts -->
-      <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-      <!-- Stylesheets -->
-      <link rel="stylesheet" href="css/main.css">
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="css/main.css">
 
-      <!-- Local Lib -->
-      <script src="lib/d3.js"></script>
-      <script src="lib/d3.layout.cloud.js"></script>
+    <!-- Local Lib -->
+    <script src="lib/d3.layout.cloud.js"></script>
 
-      <!-- CDN Lib -->
-      <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
-      <script src="https://apis.google.com/js/api.js"></script>
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    </head>
+    <!-- CDN Lib -->
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://apis.google.com/js/api.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  </head>
 
-    <body>
+  <body>
+    <!-- <div class="top-wrapper">
+      <div class="title">
+        <a href="index.html">What's in a name?</a>
+      </div>
+    </div> -->
 
-      <div id="main-wrapper">
-        <div class="top-wrapper">
-          <div class="title">
-            <a href="index.html">YouTube API Project</a>
+    <div class="middle-wrapper">
+      <!-- Content -->
+      <div class="content">
+        <form id="searchForm">
+          <b>Search Filters:</b>
+          <br>
+          <input id="keywordBar" type="search" name="keywords" placeholder="Keywords (optional)" autocomplete="off"> <input class="submitButton" type="submit" value="Search"> <br>
+          <div class="filter">
+            Sort by:
+            <select id="orderDropdown">
+              <option value="viewCount" selected>View Count</option>
+              <option value="relevance">Relevance</option>
+              <option value="rating">Rating</option>
+              <option value="date">Date</option>
+              <option value="title">Alphabetically</option>
+            </select> <br>
+            <input id="viewToggleMin" type="checkbox" disabled> <span class="small">Minimum Views</span> <br>
+            <input id="rangeTextMin" class="smallInput" type="number" name="minLimit" min="0" value="1000" step="1" disabled> <br>
+            <input id="viewToggleMax" type="checkbox" disabled> <span class="small">Maximum Views</span> <br>
+            <input id="rangeTextMax" class="smallInput" type="number" name="maxLimit" min="0" value="100000000" step="1" disabled>
           </div>
-          <small class="info">(Click/Refresh to reset!)</small>
-        </div>
-
-        <!-- middle -->
-        <div class="middle-wrapper">
-          <!-- Content -->
-          <div class="content">
-            <form id="searchForm">
-              <input id="keywordBar" type="search" name="keywords" placeholder="Keywords (leave blank to ignore)" autocomplete="off"> <input class="submitButton" type="submit" value="Search"> <br>
-              <hr>
-              <b>Search Filters:</b> <br>
-              <div class="filter">
-                Sort by:
-                <select id="orderDropdown">
-                  <option value="viewCount" selected>View Count</option>
-                  <option value="relevance">Relevance</option>
-                  <option value="rating">Rating</option>
-                  <option value="date">Date</option>
-                  <option value="title">Alphabetically</option>
-                </select> <br>
-                <input id="viewToggleMin" type="checkbox"> <span class="small">Minimum Views</span> <br>
-                <input id="rangeTextMin" class="smallInput" type="number" name="minLimit" min="0" value="1000" step="1" disabled> <br>
-                <input id="viewToggleMax" type="checkbox"> <span class="small">Maximum Views</span> <br>
-                <input id="rangeTextMax" class="smallInput" type="number" name="maxLimit" min="0" value="100000000" step="1" disabled>
-              </div>
-              <div class="filter">
-                <input id="locationToggle" type="checkbox"> <span class="small">Location</span> <br>
-                <span class="small">Center:</span> <br>
-                <input id="latitudeText" class="smallInput" type="number" name="latitudeIn" min="-180" max="180" step="0.000001" value="0.000000" disabled> <br>
-                <input id="longitudeText" class="smallInput" type="number" name="longitudeIn" min="-180" max="180" step="0.000001" value="0.000000" disabled> <br>
-                <input id="radiusText" class="smallInput" type="number" name="radiusIn" min="1" max="1000" value="500" disabled>
-                <select id="radiusUnit" disabled>
-                  <option value="m">m</option>
-                  <option value="km" selected>km</option>
-                  <option value="ft">ft</option>
-                  <option value="mi">mi</option>
-                </select>
-              </div>
-              <hr>
-            </form>
-            <div>
-              <div id="resultDiv"></div>
-              <div id="graphDiv">
-                <div id="word-cloud"><h3 style="color:crimson;">Important:</h3>You <em>may</em> have to submit many times to see the most commonly used words in the word-cloud. I'll probably replace or include a bar-graph or tally of words used.<h4>Also,</h4>I still have to make the view filter work properly. Google does not send a video's view with their YouTube API.</div>
-              </div>
+          <div class="filter">
+            <input id="locationToggle" type="checkbox"> <span class="small">Location</span> <br>
+            <span class="small">Center:</span> <br>
+            <input id="latitudeText" class="smallInput" type="number" name="latitudeIn" min="-180" max="180" step="0.000001" value="0.000000" disabled> <br>
+            <input id="longitudeText" class="smallInput" type="number" name="longitudeIn" min="-180" max="180" step="0.000001" value="0.000000" disabled> <br>
+            <input id="radiusText" class="smallInput" type="number" name="radiusIn" min="1" max="1000" value="500" disabled>
+            <select id="radiusUnit" disabled>
+              <option value="m">m</option>
+              <option value="km" selected>km</option>
+              <option value="ft">ft</option>
+              <option value="mi">mi</option>
+            </select>
+          </div>
+          <hr>
+        </form>
+        <div>
+          <div id="resultDiv"></div>
+          <div id="graphDiv">
+            <div id="word-cloud">
+              <h3 style="color:crimson;">Note:</h3>
+              <p>This is a test of the YouTube Data API v3 attempting to find if a particular subject or topic makes a video popular.
+                These subjects may appear in titles, so the words that make up a video title will be made into a wordcloud for
+                easier visual recognition.</p>
+              <br> The view count filters have been disabled.
             </div>
           </div>
         </div>
-
-        <!-- Credits -->
-        <div class="bottom-wrapper">
-          HTML, CSS, and JavaScript by: MrQuo <br>
-          For educational purposes at the <a href="https://humandynamics.sdsu.edu/" target="_blank">SDSU HDMA Center</a>.
-        </div>
       </div>
+    </div>
 
-      <!-- Document Ready Scripts -->
-      <script src="js/home.js"></script>
-    </body>
+    <div class="bottom-wrapper">
+      <!-- Credits -->
+      Made by: Joshua Narezo <br>
+      For educational purposes at San Diego State University's <a href="https://humandynamics.sdsu.edu/" target="_blank">HDMA Center</a>.
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/home.js"></script>
+  </body>
 </html>
