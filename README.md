@@ -1,5 +1,5 @@
 # youtube data api test
-When social media is growing and connecting people across the world, San Diego State University's [HDMA Center](https://humandynamics.sdsu.edu/) is using new developments in geospatial science, mobile technology, and [big data](https://en.wikipedia.org/wiki/Big_data) to uncover the spatial and temporal relationships to explain human behavior, public health, and other activities around the world.
+While social media is growing and connecting people across the world, San Diego State University's [HDMA Center](https://humandynamics.sdsu.edu/) is using new developments in geospatial science, mobile technology, and [big data](https://en.wikipedia.org/wiki/Big_data) to uncover the spatial and temporal relationships to explain human behavior, public health, and other activities around the world.
 
 The website is my test of Google's YouTube Data API v3 and the information it can provide for social media research as part of SDSU's growing research in human behavior.
 
