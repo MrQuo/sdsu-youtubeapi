@@ -1,9 +1,9 @@
 # a youtube data api test
 What's in a name?
 
-While social media is growing and connecting people across the world, San Diego State University's [HDMA Center](https://humandynamics.sdsu.edu/) is using new developments in geospatial science, mobile technology, and [big data](https://en.wikipedia.org/wiki/Big_data) to uncover the spatial and temporal relationships to explain human behavior, public health, and other activities around the world.
+While social media is growing and connecting people across the world, San Diego State University's [HDMA Center](https://humandynamics.sdsu.edu/) is using new developments in geospatial science, mobile technology, and Big Data to uncover the spatial and temporal relationships to explain human behavior, public health, and other activities around the world.
 
-The website is my test of Google's YouTube Data API v3 and the information it can provide for social media research as part of SDSU's growing research in human behavior.
+The website is my test of Google's YouTube Data API v3 and the information it can provide for social media research as part of SDSU's growing research in human behavior. I had an idea that popular culture and trends can be seen through videos' titles.
 
 Check out the [website](https://mrquo.github.io/sdsu-youtubeapi/)!
 
@@ -16,5 +16,7 @@ The data is retrieved from a query based on the following implemented filters:
 * **Sort Order** - sort by *View Count*, *Relevance*, *Rating*, *Date*, *Title*
 * **Location** - use data from videos in a *radius* around a point on Earth (latitude, longitude)
 
-### Support
-I want to give my thanks for all the support of everyone at the HDMA Center, especially Dr. Tsou.
+### Credits and Support
+I want to give credit for the wordcloud library [here](https://github.com/jasondavies/d3-cloud), by Jason Davies.
+
+Thanks for all the support of everyone at the HDMA Center, especially Dr. Tsou.
