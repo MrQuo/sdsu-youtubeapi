@@ -1,34 +1,47 @@
+html {
+    margin: 0;
+    height: 100%;
+}
+
 body {
-    display: block;
+    display: flex;
+    flex-flow: column;
     background-color: #3D3A35;
     font-family: 'Open Sans', Arial, Helvetica, sans-serif;
     margin: 0;
-    padding: 0;
+    min-height: 100%;
 }
 
-.top-bar {
-    display: none;
+.top-wrapper {
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.middle-wrapper {
+    flex: 1 1 auto;
+    background-color: #CC4633;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.bottom-wrapper {
+    flex: 0 1 auto;
+    font-size: 1em;
+    padding-top: 2%;
+    padding-bottom: 2%;
 }
 
 div.top-wrapper, div.bottom-wrapper {
     background-color: #3D3A35;
 }
 
-div.top-wrapper {
-    padding-top: 5%;
-    padding-bottom: 5%;
-}
-
-div.bottom-wrapper {
-    bottom: 0;
-    width: 100%;
-    padding-top: 2%;
-    padding-bottom: 2%;
-}
-
 div.top-wrapper, div.bottom-wrapper
 a {
     color: #fff;
+    transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
 }
 
 div.top-wrapper, div.bottom-wrapper
@@ -36,14 +49,8 @@ a:hover {
     color: #bbb;
 }
 
-div.top-wrapper, div.bottom-wrapper
-a:visited {
-    color: #fff;
-}
-
 div.title, div.bottom-wrapper {
     text-align: center;
-    font-size: 4em;
     color: #fff;
 }
 
@@ -51,7 +58,11 @@ div.title
 a {
     text-decoration: none;
     color: #fff;
+    font-size: 4em;
     transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -webkit-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
 }
 
 div.title
@@ -59,22 +70,15 @@ a:hover {
     color: #bbb;
 }
 
-div.bottom-wrapper {
-    font-size: 1em;
-}
-
-.middle-wrapper {
-    background-color: #CC4633;
-}
-
 .content {
     background-color: #FFF7F4;
+    border-radius: 4px;
+    margin-right: 5%;
+    margin-left: 5%;
     padding-top: 2%;
     padding-right: 4%;
     padding-left: 4%;
     padding-bottom: 2%;
-    margin-right: 5%;
-    margin-left: 5%;
 }
 
 div.filter {
@@ -138,8 +142,10 @@ input.submitButton {
     border: 2px solid #008CBA;
     border-radius: 5px;
     outline: none;
-    -webkit-transition-duration: 0.3s;
     transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -webkit-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
 }
 
 input.submitButton:hover {
@@ -188,6 +194,10 @@ div.videoInfo {
     vertical-align: top;
     width: 50%;
     padding: 8px;
+}
+
+h3 {
+    margin-top: 0;
 }
 
 b {
