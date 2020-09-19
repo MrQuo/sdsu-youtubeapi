@@ -1,5 +1,4 @@
 # a youtube data api test
-What's in a name?
 
 While social media is growing and connecting people across the world, San Diego State University's [HDMA Center](https://humandynamics.sdsu.edu/) is using new developments in geospatial science, mobile technology, and Big Data to uncover the spatial and temporal relationships to explain human behavior, public health, and other activities around the world.
 
